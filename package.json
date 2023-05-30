@@ -16,5 +16,8 @@
     "url": "https://github.com/katrine-mo-jensen/nodejs/issues"
   },
   "homepage": "https://github.com/katrine-mo-jensen/nodejs#readme",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
