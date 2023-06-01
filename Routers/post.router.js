@@ -7,8 +7,16 @@ postRouter.get("/posts", (req, res) => {
 });
 
 postRouter.post("/posts", (req, res) => {
-  res.send("Opret ny post");
-  console.log(req.body);
+  res.send(`${req.body.firstname} ${req.body.lastname}
+  ${req.body.email}
+  ${req.body.birthday}
+  ${req.body.password}
+  ${req.body.job}
+  ${req.body.address}
+  
+  
+  
+  `);
 });
 
 postRouter.put("/posts", (req, res) => {
