@@ -1,13 +1,14 @@
 import express from "express";
+// import db from "./Config/db.config.js";
 
 const postRouter = express.Router();
 
-postRouter.get("/posts", (req, res) => {
+postRouter.get("/", (req, res) => {
   console.log(req.query);
   res.send("Hent alle posts");
 });
 
-postRouter.post("/posts", (req, res) => {
+postRouter.post("/", (req, res) => {
   res.send(`${req.body.firstname} ${req.body.lastname}
   ${req.body.email}
   ${req.body.birthday}
@@ -20,12 +21,14 @@ postRouter.post("/posts", (req, res) => {
   `);
 });
 
-postRouter.put("/posts", (req, res) => {
+postRouter.put("/", (req, res) => {
   res.send("Opdate post");
 });
 
-postRouter.delete("/posts", (req, res) => {
+postRouter.delete("/", (req, res) => {
   res.send("Sletter post");
 });
+
+
 
 export { postRouter };

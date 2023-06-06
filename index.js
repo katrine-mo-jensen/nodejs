@@ -4,7 +4,7 @@ import { collectionRouter } from "./Routers/collection.router.js";
 import dotenv from "dotenv";
 import db from "./Config/db.config.js";
 
-db.query("SELECT title FROM song", (err, result) => {
+db.query("SELECT title, name FROM song, artist", (err, result) => {
   console.log(result);
 });
 
@@ -21,7 +21,7 @@ app.get("/about", (req, res) => {
   res.send("Læs mere om min Node.js app!");
 });
 
-app.use(postRouter);
+app.use("/posts", postRouter);
 app.use(collectionRouter);
 
 app.use((req, res, next) => {
