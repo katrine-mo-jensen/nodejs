@@ -2,11 +2,16 @@ import express from "express";
 import { postRouter } from "./Routers/post.router.js";
 import { collectionRouter } from "./Routers/collection.router.js";
 import dotenv from "dotenv";
+import db from "./Config/db.config.js";
+
+db.query("SELECT title FROM song", (err, result) => {
+  console.log(result);
+});
 
 dotenv.config();
 
 const app = express();
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("Hej verden!");
