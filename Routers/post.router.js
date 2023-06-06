@@ -1,5 +1,4 @@
 import express from "express";
-// import db from "./Config/db.config.js";
 
 const postRouter = express.Router();
 
@@ -28,7 +27,5 @@ postRouter.put("/", (req, res) => {
 postRouter.delete("/", (req, res) => {
   res.send("Sletter post");
 });
-
-
 
 export { postRouter };
