@@ -3,6 +3,7 @@ import express from "express";
 const postRouter = express.Router();
 
 postRouter.get("/posts", (req, res) => {
+  console.log(req.query);
   res.send("Hent alle posts");
 });
 
