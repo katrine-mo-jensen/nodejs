@@ -6,20 +6,23 @@ const songbookRouter = express.Router();
 const song = new SongController();
 
 songbookRouter.get("/songbook", (req, res) => {
-  console.log(song.list());
+  return song.list(req, res)
 });
 
 songbookRouter.get("/songbook/:id([0-9]*)", (req, res) => {
-  console.log(song.details());
+  return song.details(req, res)
 });
+
 songbookRouter.post("/songbook", (req, res) => {
-  console.log(song.create());
+  return song.create(req, res)
 });
+
 songbookRouter.put("/songbook", (req, res) => {
-  console.log(song.update());
+  res.send('Opdater sang')
 });
+
 songbookRouter.delete("/songbook", (req, res) => {
-  console.log(song.delete());
+  res.send('Sletter sang')
 });
 
 export { songbookRouter };
