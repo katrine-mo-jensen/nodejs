@@ -1,7 +1,8 @@
 import express from "express";
 import { postRouter } from "./Routers/post.router.js";
 import { collectionRouter } from "./Routers/collection.router.js";
-import { songbookRouter } from "./Routers/songbook.router.js";
+import { songRouter } from "./Routers/song.router.js";
+import { artistRouter } from "./Routers/artist.router.js";
 
 
 import dotenv from "dotenv";
@@ -21,10 +22,11 @@ app.get("/about", (req, res) => {
 
 app.use("/posts", postRouter);
 app.use("/products", collectionRouter);
-app.use(songbookRouter);
+app.use(songRouter);
+app.use(artistRouter)
 
 app.use((req, res, next) => {
-  res.status(404).send("Siden blev ikke fundet");
+  res.status(404).send("Siden blev ikke fundet fuck");
 });
 
 app.listen(process.env.PORT, () => {
