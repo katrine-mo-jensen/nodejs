@@ -11,16 +11,16 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 
-// app.get("/", (req, res) => {
-//   res.send("Hej verden!");
-// });
+app.get("/", (req, res) => {
+  res.send("Hej verden!");
+});
 
-// app.get("/about", (req, res) => {
-//   res.send("Læs mere om min Node.js app!");
-// });
+app.get("/about", (req, res) => {
+  res.send("Læs mere om min Node.js app!");
+});
 
-// app.use("/posts", postRouter);
-// app.use("/products", collectionRouter);
+app.use("/posts", postRouter);
+app.use("/products", collectionRouter);
 app.use(songbookRouter);
 
 app.use((req, res, next) => {
