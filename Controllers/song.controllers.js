@@ -16,7 +16,7 @@ class SongController {
 
 		//sætter ternary operator
 
-		// sortkey = sortkey ? sortkey :'id'
+		// sortkey = sortkey ? sortkey :'id' 
 
 		const sql = `SELECT s.id, s.title, a.name, a.id AS artist_id
 						FROM song s 
