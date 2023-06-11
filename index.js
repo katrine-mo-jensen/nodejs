@@ -20,7 +20,7 @@ app.get("/about", (req, res) => {
   res.send("Læs mere om min Node.js app!");
 });
 
-app.use("/posts", postRouter);
+app.use("/andet", postRouter);
 app.use("/products", collectionRouter);
 app.use(songRouter);
 app.use(artistRouter)
