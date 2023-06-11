@@ -4,7 +4,6 @@ import { collectionRouter } from "./Routers/collection.router.js";
 import { songRouter } from "./Routers/song.router.js";
 import { artistRouter } from "./Routers/artist.router.js";
 
-
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -20,10 +19,10 @@ app.get("/about", (req, res) => {
   res.send("Læs mere om min Node.js app!");
 });
 
-app.use("/andet", postRouter);
+app.use("/posts", postRouter);
 app.use("/products", collectionRouter);
 app.use(songRouter);
-app.use(artistRouter)
+app.use(artistRouter);
 
 app.use((req, res, next) => {
   res.status(404).send("Siden blev ikke fundet fuck");

@@ -5,11 +5,8 @@ const artistRouter = express.Router();
 
 const artist = new ArtistController();
 
-artistRouter.get('/artist', (req, res) => {
-    res.json(1234)
-})
-
-
-
+artistRouter.get("/artist", (req, res) => {
+  artist.list(req, res);
+});
 
 export { artistRouter };
