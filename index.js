@@ -1,5 +1,6 @@
 import express from "express";
 import { postRouter } from "./Routers/post.router.js";
+import { router as initRouter } from "./Routers/init.seqelize.router.js";
 import { collectionRouter } from "./Routers/collection.router.js";
 import dotenv from "dotenv";
 import db from "./Config/db.config.js";
@@ -9,6 +10,9 @@ db.query("SELECT title, name FROM song, artist", (err, result) => {
 });
 
 dotenv.config();
+
+// app.use(initRouter);
+// app.use(SongRouter);
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -31,3 +35,4 @@ app.use((req, res, next) => {
 app.listen(process.env.PORT, () => {
   console.log(`Server kører på http://localhost:${process.env.PORT}`);
 });
+
