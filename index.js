@@ -11,10 +11,9 @@ db.query("SELECT title, name FROM song, artist", (err, result) => {
 
 dotenv.config();
 
-// app.use(initRouter);
-// app.use(SongRouter);
-
 const app = express();
+
+app.use(initRouter);
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -35,4 +34,3 @@ app.use((req, res, next) => {
 app.listen(process.env.PORT, () => {
   console.log(`Server kører på http://localhost:${process.env.PORT}`);
 });
-

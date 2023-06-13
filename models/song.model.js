@@ -1,4 +1,4 @@
-import { sequelize } from "../Config/db.sequelize";
+import { sequelize } from "../Config/db.sequelize.js";
 import { Sequelize, DataTypes, Model  } from "sequelize";
 
 class SongModel extends Model {}
@@ -23,8 +23,13 @@ SongModel.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
+}, {
     sequelize,
-    modelName: 'song'
+    modelName: 'song',
+    freezeTableName: true,
+    underscored: true,
+    // createdAt: 'created',
+    // updatedAt: false
 
 })
 
