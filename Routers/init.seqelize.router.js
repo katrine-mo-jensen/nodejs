@@ -19,6 +19,4 @@ router.get( '/init', (req, res) =>{
   
   })
 
-/*Song Routes End*/
-
 export { router };
