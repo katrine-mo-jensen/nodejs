@@ -22,8 +22,8 @@ songRouter.put("/song", (req, res) => {
   return song.update(req, res);
 });
 
-songRouter.delete("/song", (req, res) => {
-  res.send("Sletter sang");
-});
+songRouter.delete('/song/:id([0-9]*)', (req, res) => {
+  return song.delete(req, res)
+})
 
 export { songRouter };

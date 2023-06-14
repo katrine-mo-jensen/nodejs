@@ -33,7 +33,9 @@ class SongController {
     const { title, content, artist_id, id } = req.body;
 
     if (title && content && artist_id && id) {
-      const model = await SongModel.update(req.body, { where: { id: id } });
+      const model = await SongModel.update(req.body, { where: {
+         id: id } 
+        });
       return res.json({ status: true });
     } else {
       res.send(418);
