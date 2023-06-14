@@ -1,9 +1,9 @@
 import { sequelize } from "../Config/db.sequelize.js";
 import { Sequelize, DataTypes, Model } from "sequelize";
 
-class ArtistModel extends Model {}
+class SongModel extends Model {}
 
-ArtistModel.init(
+SongModel.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,15 +11,23 @@ ArtistModel.init(
       allowNull: false,
       primaryKey: true,
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "Untitled",
     },
+    content: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    artist_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   },
   {
     sequelize,
-    modelName: "artist",
+    modelName: "song",
     freezeTableName: true,
     underscored: true,
     // createdAt: 'created',
@@ -27,4 +35,4 @@ ArtistModel.init(
   }
 );
 
-export default ArtistModel;
+export default SongModel;
