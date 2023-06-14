@@ -128,6 +128,17 @@ class SongController {
     }
   }
 
+  update = async (req, res) => {
+    const { title, content, artist_id } = req.body;
+
+    if(title && content && artist_id) {
+      const model = await SongModel.update(req.body, { where: { id: id}})
+      return res.json ({ newid: model.id})
+    } else {
+      res.send(418)
+    }
+  }
+
 }
 
 export default SongController;
