@@ -10,16 +10,16 @@ class SongController {
     let { sortkey, sortdir, limit, attributes } = req.query;
 
     sortkey = sortkey ? sortkey : "s.id";
-	sortdir = sortdir ? sortdir.toUpperCase() : 'ASC'
-	limit = limit ? `LIMIT ${parseInt(limit)}` : ''
-	attributes = attributes ? attributes : 's.id, s.title, a.name'
+    sortdir = sortdir ? sortdir.toUpperCase() : "ASC";
+    limit = limit ? `LIMIT ${parseInt(limit)}` : "";
+    attributes = attributes ? attributes : "s.id, s.title, a.name";
 
     const sql = `SELECT ${attributes}
 						FROM song s 
 						JOIN artist a 
 						ON s.artist_id = a.id 
 						ORDER BY ${sortkey} ${sortdir} ${limit} `;
-						console.log(sql)
+    console.log(sql);
     db.query(sql, (err, result) => {
       if (err) {
         console.error(err);
@@ -91,7 +91,7 @@ class SongController {
     }
   };
 
-  // delete 
+  // delete
 }
 
 export default SongController;
