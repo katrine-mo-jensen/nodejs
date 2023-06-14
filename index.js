@@ -1,6 +1,8 @@
 import express from "express";
 import { postRouter } from "./Routers/post.router.js";
 import { router as initRouter } from "./Routers/init.seqelize.router.js";
+import { SongRouter } from "./Routers/song.router.js";
+
 import { collectionRouter } from "./Routers/collection.router.js";
 import dotenv from "dotenv";
 import db from "./Config/db.config.js";
@@ -14,6 +16,10 @@ dotenv.config();
 const app = express();
 
 app.use(initRouter);
+// app.use(UserRouter);
+app.use(SongRouter);
+app.use(ArtistRouter);
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
