@@ -98,6 +98,8 @@
 
 //Fra node.js-sequelize - Opsætning af controller
 import SongModel from "../models/song.model.js";
+import ArtistModel from "../models/artist.model.js";
+
 
 class SongController {
   constructor() {}
@@ -133,9 +135,19 @@ class SongController {
 
     if(title && content && artist_id) {
       const model = await SongModel.update(req.body, { where: { id: id}})
-      return res.json ({ newid: model.id})
+      return res.json ({ status: true})
     } else {
       res.send(418)
+    }
+  }
+
+  delete = async (req, res) => {
+    try {
+      await SongModel.destroy({where: { id: req.params.d}})
+      res. sendStatus(200)
+    }
+    catch (err) {
+      res.send(err)
     }
   }
 
