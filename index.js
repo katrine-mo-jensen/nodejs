@@ -1,24 +1,14 @@
 import express from "express";
 import { postRouter } from "./Routers/post.router.js";
-import { router as initRouter } from "./Routers/init.seqelize.router.js";
-import { SongRouter } from "./Routers/song.router.js";
-
 import { collectionRouter } from "./Routers/collection.router.js";
+import { songRouter } from "./Routers/song.router.js";
+import { artistRouter } from "./Routers/artist.router.js";
+import { initRouter } from "./Routers/init.sequelize.router.js";
+
 import dotenv from "dotenv";
-import db from "./Config/db.config.js";
-
-db.query("SELECT title, name FROM song, artist", (err, result) => {
-  console.log(result);
-});
-
 dotenv.config();
 
 const app = express();
-
-app.use(initRouter);
-// app.use(UserRouter);
-app.use(SongRouter);
-app.use(ArtistRouter);
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -31,7 +21,10 @@ app.get("/about", (req, res) => {
 });
 
 app.use("/posts", postRouter);
-app.use(collectionRouter);
+app.use("/products", collectionRouter);
+app.use(songRouter);
+app.use(artistRouter);
+app.use(initRouter);
 
 app.use((req, res, next) => {
   res.status(404).send("Siden blev ikke fundet");
