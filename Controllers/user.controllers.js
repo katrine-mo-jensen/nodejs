@@ -30,3 +30,23 @@ export const getUserById = async (req, res) => {
     res.status(404).json({ message: "Bruger ikke fundet" });
   }
 };
+
+details = async (req, res) => {
+
+  const { id } = req.params || 0
+
+  const result = await UserModel.findOne({
+    attributes: ['id', 'firstname', 'lastname', 'email', 'is_active']
+    // where: { id: id}
+  })
+
+  res.json(result)
+
+}
+
+create = async (req, res) => {
+  console.log(1234);
+}
+
+export default UserController 
+
