@@ -13,7 +13,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("Hej verden!");
+  res.send("Hej verden. Her er jeg!");
 });
 
 app.get("/about", (req, res) => {
